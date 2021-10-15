@@ -46,6 +46,14 @@ body {
   background-color: var(--twitter-color);
   color: white;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.sidebar__twitter:hover {
+  background-color: white;
+  color: var(--twitter-color);
+  border: 2px solid var(--twitter-color);
+  transition: color 100ms ease-out;
 }
 
 body {
@@ -67,4 +75,85 @@ body {
 .fa-twitter {
   color: var(--twitter-color);
   font-size: 30px;
+}
+
+/* feed */
+.feed {
+  flex: 0.5;
+  border-right: 1px solid var(--twitter-background);
+  min-width: fit-content; /* need search */
+  overflow-y: scroll;
+}
+
+.feed__header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  border: 1px solid var(--twitter-background);
+  padding: 15px 20px;
+}
+.feed__header h2 {
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+/* .feed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} */
+
+/* tweet box */
+.tweetbox__input img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tweetBox {
+  padding-bottom: 10px;
+  border-bottom: 8px solid var(--twitter-background);
+  padding-right: 10px;
+}
+
+.tweetBox form {
+  display: flex;
+  flex-direction: column;
+}
+/* sssssssssssssssssssssssssssssssssssss */
+
+.tweetbox__input {
+  display: flex;
+  padding: 20px;
+}
+.tweetbox__input input {
+  flex: 1; /* to take the full width of the parent*/
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.tweetBox__tweetButton {
+  background-color: var(--twitter-color);
+  border: none;
+  color: white;
+  font-weight: 900;
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  align-self: flex-end; /* my edit*/
+  /* margin-left: auto; his edit*/
+  cursor: pointer;
+}
+.tweetBox__tweetButton:hover {
+  background-color: white;
+  color: var(--twitter-color);
+  border: 2px solid var(--twitter-color);
+  transition: color 100ms ease-out;
 }
