@@ -7,6 +7,8 @@
 body {
   --twitter-color: #50b7f5;
   --twitter-background: #e6ecf0;
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
 }
 
 .sidebarOption {
@@ -21,7 +23,7 @@ body {
 }
 
 .sidebarOption h2 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
   /* margin-right: 20px; */
 }
@@ -81,7 +83,6 @@ body {
 .feed {
   flex: 0.5;
   border-right: 1px solid var(--twitter-background);
-  min-width: fit-content; /* need search */
   overflow-y: scroll;
 }
 
@@ -159,7 +160,6 @@ body {
 
 /* post */
 .post {
-  /* ok */
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid var(--twitter-background);
@@ -174,6 +174,8 @@ body {
 }
 .post__header {
   display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
 }
 .post__body {
   display: flex;
@@ -189,14 +191,12 @@ body {
   display: flex;
 }
 .hash__name {
-  /* ok */
   color: gray;
   font-weight: 600;
   align-self: flex-end;
   font-size: 14px;
 }
 .post__badge {
-  /* ok */
   color: var(--twitter-color);
   font-size: 14px;
   padding: 0 5px;
@@ -206,7 +206,6 @@ body {
   margin-top: 15px;
 }
 .post__avatar img {
-  /* ok */
   height: 40px;
   border-radius: 50%;
 }
@@ -214,21 +213,89 @@ body {
 .post-paragraph {
   margin-top: 5px;
   font-weight: 400;
+  width: 500px;
 }
 .post__img {
-  align-self: center;
+  margin-left: 70px;
 }
 
 .post__img img {
-  /* ok */
   width: 450px;
   object-fit: contain;
   border-radius: 20px;
+  margin-top: 10px;
 }
 
 .post__footer {
-  /* ok */
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
+}
+
+/* widgets */
+.widgets {
+  flex: 0.3;
+}
+
+.widgets__input {
+  display: flex;
+  align-items: center;
+  background-color: var(--twitter-background);
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.widgets__input input {
+  border: none;
+  background-color: var(--twitter-background);
+  outline: none;
+  font-size: 20px;
+}
+
+.widgets__searchIcons {
+  color: gray;
+}
+
+.widgets__widgetContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f5f8fa;
+  border-radius: 20px;
+}
+
+.trends__container {
+  display: flex;
+  justify-content: space-between;
+}
+.trend__element {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.trending__header {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+}
+.trending__header h5 {
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+
+.tweets__number {
+  margin-top: 3px;
+  color: gray;
+}
+.show__more {
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(29, 155, 240);
+  font-weight: 500;
+  margin-top: 25px;
 }
