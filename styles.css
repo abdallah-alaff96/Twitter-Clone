@@ -40,15 +40,19 @@ body {
 }
 
 .sidebar__twitter {
-  width: 100%;
-  height: 50px;
+  width: 30%;
+  height: 40px;
   border: none;
   border-radius: 30px;
   font-weight: 900;
   background-color: var(--twitter-color);
   color: white;
-  margin-top: 20px;
+  margin-top: 15px;
   cursor: pointer;
+}
+.sidebar__twitter span {
+  margin: 0;
+  font-size: 40px;
 }
 
 .sidebar__twitter:hover {
@@ -77,6 +81,7 @@ body {
 .fa-twitter {
   color: var(--twitter-color);
   font-size: 30px;
+  padding-top: 0;
 }
 
 /* feed */
@@ -183,12 +188,16 @@ body {
   margin-left: 30px;
 }
 
-.post__body h3 {
-  display: flex;
-  font-weight: 900;
+#my_account {
+  color: black;
+  text-decoration: none;
+}
+#my_account:hover {
+  text-decoration: underline;
 }
 .upper__part {
   display: flex;
+  font-weight: 900;
 }
 .hash__name {
   color: gray;
@@ -220,16 +229,51 @@ body {
 }
 
 .post__img img {
-  width: 450px;
+  width: 500px;
   object-fit: contain;
-  border-radius: 20px;
+  border-radius: 30px;
   margin-top: 10px;
 }
 
 .post__footer {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
+}
+
+.repeat-icon,
+.love-icon,
+.share-icon {
+  cursor: pointer;
+  padding: 8px;
+}
+.post__footer .material-icons {
+  border-radius: 30px;
+  transition: color 100ms ease-out;
+  padding: 8px;
+}
+.repeat-icon:hover {
+  background-color: rgb(209, 255, 234);
+  color: rgb(5, 90, 2);
+}
+.love-icon:hover {
+  background-color: rgb(250, 219, 231);
+  color: rgb(249, 24, 128);
+}
+.share-icon:hover {
+  background-color: rgb(178, 221, 250);
+  color: rgb(29, 155, 240);
+}
+.repeat-icon.active {
+  background-color: rgb(209, 255, 234);
+  color: rgb(5, 90, 2);
+}
+.love-icon.active {
+  background-color: rgb(250, 219, 231);
+  color: rgb(249, 24, 128);
+}
+.share-icon.active {
+  background-color: rgb(178, 221, 250);
+  color: rgb(29, 155, 240);
 }
 
 /* widgets */
@@ -263,25 +307,50 @@ body {
   flex-direction: column;
   margin-top: 15px;
   margin-left: 20px;
-  padding: 20px;
+  padding: 20px 0;
   background-color: #f5f8fa;
   border-radius: 20px;
 }
+.trend__settings {
+  align-self: center;
+  border-radius: 30px;
+  transition: color 100ms ease-out;
+  padding: 3px;
+  cursor: pointer;
+  margin-right: 20px;
+}
 
+.trend__settings:hover {
+  background-color: var(--twitter-color);
+  color: white;
+}
 .trends__container {
   display: flex;
   justify-content: space-between;
 }
+
+.trends__container h1 {
+  margin-left: 20px;
+}
+
 .trend__element {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
+.trend__element:hover {
+  background-color: white;
+}
 .trending__header {
   display: flex;
   justify-content: space-between;
   color: gray;
+}
+.trending__header .material-icons {
+  cursor: pointer;
 }
 .trending__header h5 {
   align-self: flex-end;
@@ -298,4 +367,10 @@ body {
   color: rgb(29, 155, 240);
   font-weight: 500;
   margin-top: 25px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.show__more:hover {
+  text-decoration: underline;
 }
