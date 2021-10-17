@@ -19,13 +19,12 @@ body {
 
 .sidebarOption .material-icons,
 .fa-twitter {
-  padding: 20px;
+  padding: 15px;
 }
 
 .sidebarOption h2 {
   font-weight: 600;
-  font-size: 20px;
-  /* margin-right: 20px; */
+  font-size: 15px;
 }
 
 .sidebarOption:hover {
@@ -331,6 +330,7 @@ body {
 
 .trends__container h1 {
   margin-left: 20px;
+  font-size: 25px;
 }
 
 .trend__element {
