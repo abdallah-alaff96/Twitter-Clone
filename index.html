@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Twitter Clone</title>
-
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,6 +18,7 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
+    <script async src="Tscript.js"></script>
   </head>
   <body>
           <!-- sidebar starts -->
@@ -69,11 +69,11 @@
       <button class="sidebar__twitter">
         <span class="material-icons">history_edu</span>
       </buttton>
-      </div>
+    </div>
          <!-- sidebar ends -->
     
         <!-- middle-content starts -->
-    <div class="feed">
+      <div class="feed">
         <div class="feed__header">
             <h2>Home</h2>
         </div>
@@ -82,7 +82,7 @@
             <form>
                 <div class="tweetbox__input">
                   <a href="#"><img src="me.jpeg" alt="avatar-img"></a>
-                  <input type="text" placeholder="what's happening?">
+                  <input id="text_input" type="text" placeholder="what's happening?">
                 </div>
                 <button class="tweetBox__tweetButton">Tweet</button>
             </form>
@@ -90,8 +90,8 @@
         <!-- tweetBox ends -->
 
         <!-- post starts -->
-        <div class="post">
-
+        <div class="post_parent">
+         <div class="post">
           <div class="post__avatar_and_body">
             <div class="post__header">
               <div class="post__avatar">
@@ -117,38 +117,8 @@
                 <span class="material-icons love-icon">favorite_border</span>
                 <span class="material-icons share-icon">publish</span>
           </div>
-      </div>
-        <!-- post ends -->
-        <!-- post starts -->
-        <div class="post">
-
-          <div class="post__avatar_and_body">
-            <div class="post__header">
-              <div class="post__avatar">
-                <a href="#"><img src="me.jpeg" alt="avatar-img"></a>
-              </div>
-              <div class="post__body">
-                <div class="upper__part">
-                    <a href="#" id="my_account"><h3>Abdallah Alaff</h3></a>
-                    <span class="material-icons post__badge">verified</span>
-                    <span class="hash__name">
-                      @abdallah96
-                    </span>
-                </div>
-                  <p class="post-paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus expedita sint rem</p>
-              </div>
-              <div class="post__img">
-                <img src="post-img.jpg" alt="post-img">
-              </div>
-            </div>
-          </div>
-          <div class="post__footer">
-                <span class="material-icons repeat-icon">repeat</span>  
-                <span class="material-icons love-icon">favorite_border</span>
-                <span class="material-icons share-icon">publish</span>
-          </div>
-      </div>
-        <!-- post ends -->
+         </div>
+        </div>
         
         <!-- post ends -->
     </div>
@@ -193,7 +163,6 @@
       </div>
     </div>
     <!-- Trends ends -->
-    
     
   </body>
   </html>
