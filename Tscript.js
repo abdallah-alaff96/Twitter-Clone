@@ -1,8 +1,9 @@
 'use strict';
-console.log('hello');
 const tweetButton = document.querySelector('.tweetBox__tweetButton');
 const postParent = document.querySelector('.post_parent');
 const textInput = document.getElementById('text_input');
+const retweet = document.querySelector('.repeat-icon');
+const postParagraph = document.querySelector('.post-paragraph');
 
 const createTweet = function (tweet, authorName) {
   const newPost = document.createElement('div');
@@ -37,9 +38,16 @@ const createTweet = function (tweet, authorName) {
   textInput.blur();
   newPost.style.backgroundColor = 'white';
   newPost.style.transition = '2s';
+  console.log('createTweet function is Done');
 };
 
 tweetButton.addEventListener('click', function (e) {
   e.preventDefault();
   createTweet(textInput.value, 'Abdallah Alaff');
+});
+
+retweet.addEventListener('click', function (e) {
+  e.preventDefault();
+  createTweet(postParagraph.textContent, 'Abdallah Alaff');
+  console.log('retweet Event Listener is done');
 });
