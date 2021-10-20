@@ -4,7 +4,7 @@ const postParent = document.querySelector('.post_parent');
 const textInput = document.getElementById('text_input');
 const postParagraph = document.querySelector('.post-paragraph');
 let retweetBtns = document.querySelectorAll('.repeat-icon');
-let idNameCounter = 1;
+let idNameCounter = 2;
 // footer-DOM
 const loveIcon = document.querySelectorAll('.love-icon');
 const shareIcon = document.querySelectorAll('.share-icon');
@@ -56,7 +56,7 @@ const createTweet = function (tweet, authorName) {
   setLocalStorage();
 
   const retweetBtn = document.querySelector('.repeat-icon');
-
+  console.log(retweetBtn);
   retweetBtn.addEventListener('click', e => {
     const closestParent = retweetBtn.closest('.post');
     const tweetParagraph = closestParent.querySelector('.post-paragraph');
