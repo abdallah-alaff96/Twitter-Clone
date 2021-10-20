@@ -5,12 +5,14 @@ const textInput = document.getElementById('text_input');
 const postParagraph = document.querySelector('.post-paragraph');
 let retweetBtns = document.querySelectorAll('.repeat-icon');
 let idNameCounter = 1;
+// footer-DOM
+const loveIcon = document.querySelectorAll('.love-icon');
+const shareIcon = document.querySelectorAll('.share-icon');
 
 const createTweet = function (tweet, authorName) {
   const newPost = document.createElement('div');
   newPost.classList.add('post');
   newPost.style.backgroundColor = '#e6ecf0';
-  // idNameCounter++;
   newPost.innerHTML = `
           <div class="post__avatar_and_body">
             <div class="post__header">
@@ -65,5 +67,15 @@ const retweetUpdate = function () {
     });
   });
 };
-
 retweetUpdate();
+
+// footer toggle function
+const footerToggle = function (nameIcon) {
+  nameIcon.forEach(icon => {
+    icon.addEventListener('click', function () {
+      icon.classList.toggle('active');
+    });
+  });
+};
+footerToggle(loveIcon);
+footerToggle(shareIcon);
