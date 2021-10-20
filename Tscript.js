@@ -55,9 +55,14 @@ const createTweet = function (tweet, authorName) {
   console.log(tweets);
   setLocalStorage();
 
-  retweetBtns = document.querySelectorAll('.repeat-icon');
-  console.log('createTweet is done');
-  // retweetUpdate();
+  const retweetBtn = document.querySelector('.repeat-icon');
+
+  retweetBtn.addEventListener('click', e => {
+    const closestParent = retweetBtn.closest('.post');
+    const tweetParagraph = closestParent.querySelector('.post-paragraph');
+    const tweetAuthor = closestParent.querySelector('.my_account');
+    createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
+  });
 };
 
 tweetButton.addEventListener('click', function (e) {
@@ -65,21 +70,16 @@ tweetButton.addEventListener('click', function (e) {
   createTweet(textInput.value, 'Abdallah Alaff');
 });
 
-const retweetUpdate = function () {
-  retweetBtns.forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (Number(e.target.dataset.idName) === Number(btn.dataset.idName)) {
-        // using Event Delegation "closest"
-        const closestParent = btn.closest('.post');
-        const tweetParagraph = closestParent.querySelector('.post-paragraph');
-        const tweetAuthor = closestParent.querySelector('.my_account');
-        createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
-      }
-    });
+retweetBtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    // using Event Delegation "closest"
+    const closestParent = btn.closest('.post');
+    const tweetParagraph = closestParent.querySelector('.post-paragraph');
+    const tweetAuthor = closestParent.querySelector('.my_account');
+    createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
   });
-};
-retweetUpdate();
+});
 
 // footer toggle function
 const footerToggle = function (nameIcon) {
@@ -98,11 +98,11 @@ const setLocalStorage = function () {
   localStorage.setItem('tweets', JSON.stringify(tweets));
 };
 
-const getLocalStorage = function () {
-  const data = JSON.parse(localStorage.getItem('tweets'));
-  tweets = data;
-  if (!tweets) return;
-  console.log(tweets);
-};
+// const getLocalStorage = function () {
+//   const data = JSON.parse(localStorage.getItem('tweets'));
+//   tweets = data;
+//   if (!tweets) return;
+//   console.log(tweets);
+// };
 
-getLocalStorage();
+// getLocalStorage();
