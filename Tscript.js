@@ -2,13 +2,15 @@
 const tweetButton = document.querySelector('.tweetBox__tweetButton');
 const postParent = document.querySelector('.post_parent');
 const textInput = document.getElementById('text_input');
-const retweet = document.querySelector('.repeat-icon');
 const postParagraph = document.querySelector('.post-paragraph');
+let retweetBtns = document.querySelectorAll('.repeat-icon');
+let idNameCounter = 1;
 
 const createTweet = function (tweet, authorName) {
   const newPost = document.createElement('div');
   newPost.classList.add('post');
   newPost.style.backgroundColor = '#e6ecf0';
+  // idNameCounter++;
   newPost.innerHTML = `
           <div class="post__avatar_and_body">
             <div class="post__header">
@@ -17,7 +19,7 @@ const createTweet = function (tweet, authorName) {
               </div>
               <div class="post__body">
                 <div class="upper__part">
-                    <a href="#" id="my_account"><h3>${authorName}</h3></a>
+                    <a href="#"><h3 class="my_account">${authorName}</h3></a>                
                     <span class="material-icons post__badge">verified</span>
                     <span class="hash__name">
                       @abdallah96
@@ -28,7 +30,7 @@ const createTweet = function (tweet, authorName) {
             </div>
           </div>
           <div class="post__footer">
-                <span class="material-icons repeat-icon">repeat</span>  
+                <span class="material-icons repeat-icon" data-id-name="${idNameCounter++}">repeat</span>
                 <span class="material-icons love-icon">favorite_border</span>
                 <span class="material-icons share-icon">publish</span>
           </div>
@@ -38,7 +40,10 @@ const createTweet = function (tweet, authorName) {
   textInput.blur();
   newPost.style.backgroundColor = 'white';
   newPost.style.transition = '2s';
-  console.log('createTweet function is Done');
+
+  retweetBtns = document.querySelectorAll('.repeat-icon');
+  console.log('createTweet is done');
+  // retweetUpdate();
 };
 
 tweetButton.addEventListener('click', function (e) {
@@ -46,8 +51,19 @@ tweetButton.addEventListener('click', function (e) {
   createTweet(textInput.value, 'Abdallah Alaff');
 });
 
-retweet.addEventListener('click', function (e) {
-  e.preventDefault();
-  createTweet(postParagraph.textContent, 'Abdallah Alaff');
-  console.log('retweet Event Listener is done');
-});
+const retweetUpdate = function () {
+  retweetBtns.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (Number(e.target.dataset.idName) === Number(btn.dataset.idName)) {
+        // using Event Delegation "closest"
+        const closestParent = btn.closest('.post');
+        const tweetParagraph = closestParent.querySelector('.post-paragraph');
+        const tweetAuthor = closestParent.querySelector('.my_account');
+        createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
+      }
+    });
+  });
+};
+
+retweetUpdate();

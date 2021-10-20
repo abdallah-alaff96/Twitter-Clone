@@ -187,11 +187,11 @@ body {
   margin-left: 30px;
 }
 
-#my_account {
+.upper__part a {
   color: black;
   text-decoration: none;
 }
-#my_account:hover {
+.upper__part a:hover {
   text-decoration: underline;
 }
 .upper__part {
