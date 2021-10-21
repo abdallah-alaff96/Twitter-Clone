@@ -101,8 +101,7 @@ const setLocalStorage = function () {
 
 const getLocalStorage = function () {
   const data = JSON.parse(localStorage.getItem('tweets'));
-  tweets = data;
-  if (!tweets) return;
+  tweets = data ? data : [];
   tweets.forEach(oldTweet => {
     createTweetLocalStorage(oldTweet.tweetText, oldTweet.tweetAuthor);
   });
