@@ -7,10 +7,10 @@ const resetBtn = document.querySelector('.reset-btn');
 let idNameCounter = 2;
 
 // for static HTML Posts
-// const retweetBtns = document.querySelectorAll('.repeat-icon');
-// const loveIcon = document.querySelectorAll('.love-icon');
-// const shareIcon = document.querySelectorAll('.share-icon');
-// const repeatIcon = document.querySelectorAll('.repeat-icon');
+const retweetBtns = document.querySelectorAll('.repeat-icon');
+const loveIcon = document.querySelectorAll('.love-icon');
+const shareIcon = document.querySelectorAll('.share-icon');
+const repeatIcon = document.querySelectorAll('.repeat-icon');
 
 // array for file storage
 let tweets = [];
@@ -72,7 +72,6 @@ const createTweet = function (tweet, authorName) {
   let tweetObject = {
     tweetText: tweet,
     tweetAuthor: authorName,
-    datasetName: idNameCounter,
   };
   tweets.push(tweetObject);
   setLocalStorage();
@@ -114,26 +113,26 @@ const reset = function () {
 };
 resetBtn.addEventListener('click', reset);
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // for static HTML Posts
-// retweetBtns.forEach(btn => {
-//   btn.addEventListener('click', e => {
-//     e.preventDefault();
-//     // using Event Delegation "closest"
-//     const closestParent = btn.closest('.post');
-//     const tweetParagraph = closestParent.querySelector('.post-paragraph');
-//     const tweetAuthor = closestParent.querySelector('.my_account');
-//     createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
-//   });
-// });
-// // footer toggle function
-// const footerToggleStatic = function (nameIcon) {
-//   nameIcon.forEach(icon => {
-//     icon.addEventListener('click', function () {
-//       icon.classList.toggle('active');
-//     });
-//   });
-// };
-// footerToggleStatic(loveIcon);
-// footerToggleStatic(shareIcon);
-// footerToggleStatic(repeatIcon);
+retweetBtns.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    // using Event Delegation "closest"
+    const closestParent = btn.closest('.post');
+    const tweetParagraph = closestParent.querySelector('.post-paragraph');
+    const tweetAuthor = closestParent.querySelector('.my_account');
+    createTweet(tweetParagraph.textContent, tweetAuthor.textContent);
+  });
+});
+
+// footer toggle function - for static HTML post
+const footerToggleStatic = function (nameIcon) {
+  nameIcon.forEach(icon => {
+    icon.addEventListener('click', function () {
+      icon.classList.toggle('active');
+    });
+  });
+};
+footerToggleStatic(loveIcon);
+footerToggleStatic(shareIcon);
+footerToggleStatic(repeatIcon);
