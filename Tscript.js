@@ -22,6 +22,7 @@ const mainTweetFunction = function (tweet, authorName) {
   newPost.innerHTML = `
           <div class="post__avatar_and_body">
             <div class="post__header">
+            <div class="user__info">
               <div class="post__avatar">
                 <a href="#"><img src="me.jpeg" alt="avatar-img"></a>
               </div>
@@ -35,6 +36,7 @@ const mainTweetFunction = function (tweet, authorName) {
                 </div>
                   <p class="post-paragraph">${tweet}</p>
               </div>
+            </div>
             </div>
           </div>
           <div class="post__footer">
@@ -110,6 +112,7 @@ getLocalStorage();
 // to clear local storage
 const reset = function () {
   localStorage.removeItem('tweets');
+  location.reload();
 };
 resetBtn.addEventListener('click', reset);
 
